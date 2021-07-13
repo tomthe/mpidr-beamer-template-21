@@ -1,0 +1,238 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage{./mpidrtheme/mpidr21}
+
+%%this package is only here to include latex-sourcecode in the example-presentation
+\usepackage{verbatim}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	title page information
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title[beamer manual]										%% optional, use only with long paper titles
+{This is the 2021 MPIDR beamer template. \\ Beware of the rough edges! }
+
+\author[Theile]{Tom Theile\inst{1}}
+
+\institute[MPIDR]{\inst{1}Software Developer at the \textit{DCoDe Lab}}
+
+%\Email{theile@mpidr.de}
+
+\begin{frame}[mpidrbackground=1]
+  \titlepage
+\end{frame}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	section 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{How the template works}
+
+\begin{frame}[mpidrbackground=2]
+  \tableofcontents
+\end{frame}
+
+
+\begin{frame}[mpidrbackground=2]
+    \frametitle{How it works}
+  Every slide has a background which is a pdf-export of the official MPIDR-Powerpoint template.\\
+  
+  You can choose the background by specifying  mpidrbackground={1...5}
+  
+  where {1...5} is a number between 1 and 5 (duuh!)
+  
+\end{frame} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	subsection 1.1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	- subsection names are only displayed in the TOC or in the headline when using "Navigationon"
+\subsection{How to use the template}
+
+
+\begin{frame}[mpidrbackground=1, fragile,label=notleM2bis] %these options are only necessary for "verbatim" (showing latex code).
+    \frametitle{Different Text Colors}
+        %\setbeamercolor{item}{fg=green}
+    \setbeamercolor{normal text}{fg=white}
+    \usebeamercolor[fg]{normal text}
+    
+    If you use the slide with the green background, you have to change the text color to white.
+    \begin{verbatim}
+        \setbeamercolor{normal text}{fg=white}
+        \usebeamercolor[fg]{normal text}
+    \end{verbatim}
+    
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	subection 2.1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Using the MPIDR style}
+\begin{frame}[mpidrbackground=2, fragile]%, because otherwise there would be some issues using "verbatim"
+    \frametitle{Style Files}
+  Any style file that you need for this document can be found in the subfolder \texttt{./mpidrtheme}.\\
+  
+  The style file is included by
+	\begin{verbatim}
+		\usepackage[mpidr]{./mpidr/mpidr21}
+	\end{verbatim}
+	in the preamble.
+	
+	You can edit and delete the footer (footline) in the mpidrtheme/mpidr21.sty-file.
+	
+	%\begin{verbatim}
+	%	\usepackage[NavigationOn]{./mpidr/beamerouterthemeMPIDR}.
+	%\end{verbatim}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	section 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Other example stuff}
+
+
+
+\begin{frame}[mpidrbackground=4]
+    \frametitle{Slide with a lot of space}
+ You can put a lot of stuff here...
+\end{frame}
+
+\begin{frame}[mpidrbackground=3]
+    \frametitle{The MPIDR}
+  This slide has a nice photo \\ of the Institute
+\end{frame}
+\begin{frame}[mpidrbackground=5]
+    \frametitle{Swirly Background}
+  The grey background is a little bit different this time
+\end{frame}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	subsection 1.1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	- subsection names are only displayed in the TOC or in the headline when using "Navigationon"
+\subsection{Largest Prime Number?}
+\begin{frame}[mpidrbackground=2]
+
+%%	frame titles are always displayed at the top of the frames
+  \frametitle{There Is No Largest Prime Number}
+  \begin{theorem}
+		There is no largest prime number.
+  \end{theorem}
+  \begin{proof}
+    \begin{enumerate}
+    \item<1-| alert@1> Suppose $p$ were the largest prime number.
+    \item<2-> Let $q$ be the product of the first $p$ numbers.
+    \item<3-> Then $q+1$ is not divisible by any of them.
+    \item<1-> Thus $q+1$ is also prime and greater than $p$.\qedhere
+    \end{enumerate}
+  \end{proof}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	subsection 1.2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Math mode}
+%\mpidrbackground{1}
+\begin{frame}[mpidrbackground=2]
+    \frametitle{Formulae}
+	Of course, there is no limit in typesetting mathematical formulae:
+	\begin{align}
+		V_{ab}^s\left(q, i z_\mu\right)
+			&= \frac{V_{ab}(q)}{1-\sum_{c}V_{cc}(q)\Pi_{cc}\left(q, i z_\mu\right)} 
+				\equiv \frac{V_{ab}(q)}{\varepsilon\left(q, i z_\mu\right)}  \\
+		\rule{0pt}{2em}\varepsilon\left(q, iz_\mu\right) 
+			&= 1-\sum_c V_{cc}(q)\Pi_{cc}\left(q, i z_\mu\right)
+	\end{align}
+	As you can see above, there is no need for using boxes.
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	subsection 1.3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Lists}
+\begin{frame}[mpidrbackground=2]
+    \frametitle{Columns, Itemizing, numeration}
+   This frame contains two columns for demonstrating bulleted and numbered lists. Font sizes will be changed automatically.
+	
+   \begin{columns}
+      \column{0.45\textwidth}
+         \begin{itemize}
+            \item first item
+                  \begin{itemize}
+                     \item first nested item 
+                     \item second nested item
+                           \begin{itemize}
+                              \item[--] first double-nested item
+                              \item second double-nested item
+                           \end{itemize}
+                     \item third nested item
+                  \end{itemize}
+            \item second item
+         \end{itemize}
+
+      \column{0.45\textwidth}
+         \begin{enumerate}
+            \item Enumerations
+                  \begin{enumerate}
+                     \item may be
+                           \begin{enumerate}
+                              \item changed
+                              \item in the
+                           \end{enumerate}
+                     \item same way.
+                  \end{enumerate}
+         \end{enumerate}
+   \end{columns}
+
+\end{frame}
+
+
+%\interframe{Interframe.}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%	subsection 1.4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Not implemented yet} 
+
+\begin{frame}[mpidrbackground=4] % Dieses Frame wird je nach Platz/Inhalt/Fuellstand automatisch geteilt
+    \frametitle{Theorems, Proofs, other stuff are not \\ implemented yet}
+   \begin{theorem}
+      The color scheme for this theorem-box is used automatically {\upshape(\texttt{./mpidr/beamercolorthemeMPIDR.sty})}.
+   \end{theorem}
+
+   \begin{proof}
+      Proof-boxes always end with a special symbol, a small blue square.
+   \end{proof}
+
+   \begin{block}{Example :)}
+      The title of this block is ``\insertblocktitle''.
+   \end{block}
+
+   \begin{alertblock}{Alert block}
+      An alert block.
+   \end{alertblock}
+
+   %\begin{exampleblock}{Example block}
+    %  An example block.
+   %\end{exampleblock}
+
+\end{frame}
+
+
+
+
+
+
+
+\end{document}

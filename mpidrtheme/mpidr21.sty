@@ -1,0 +1,132 @@
+%% Draft of a Beamer presentation-style similar to the official MPIDR powerpoint presentations
+%% Questions, issues and suggestions to theile@mpidr.de, please.
+
+
+\ProvidesPackage{./mpidr/beamerthemeMPIDR}
+
+
+%\usepackage{etoolbox}
+\usepackage{tikz}
+\usepackage[absolute,overlay]{textpos}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% MPIDR-green:
+\usecolortheme[RGB={6,110,110}]{structure}
+
+\setbeamerfont*{title}{size*={14pt}{16pt},series*=b}
+\setbeamerfont*{author}{family*=phv,series*=b,shape*=n,size*={10pt}{12pt}}
+\setbeamerfont*{institute}{family*=phv,series*=m,shape*=n,size*={8pt}{10pt}}
+\setbeamerfont*{foot}{family*=phv,series*=m,shape*=n,size*={4pt}{5.5pt}}
+\definecolor{lightgrey}{RGB}{190,190,190}
+\setbeamercolor{foot}{fg=lightgrey}
+
+%position the content:
+\setbeamersize{text margin left=2.1cm,text margin right=1.9cm}
+%\setbeamersize{text margin top=2.1cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% normal slide with pdf-background:
+\defbeamertemplate{frametitle}{mpidrbackground}[1]{%
+  
+    %background-pdf:
+    \tikz[remember picture,overlay] \node[opacity=0.96,inner sep=0pt] at (current page.center){\includegraphics[page={#1},width=\paperwidth,height=\paperheight]{./mpidrtheme/mpidrslides21.pdf}};
+
+
+    \vspace{-0.0cm}
+    \hspace{-0.3cm}
+    %\definecolor{mpidrgreen}{RGB}{6, 110, 110}
+    %\usebeamercolor[mpidrgreen]{}
+    \insertframetitle
+    \hspace{1.5cm}
+    \vspace{0.8cm}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% slide without background
+\defbeamertemplate{frametitle}{mydefault}{%
+    \vspace{1.0cm}
+    \hspace{-0.3cm}
+    \insertframetitle%
+    \hspace{15.5cm}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\BeforeBeginEnvironment{frame}{%
+  \setbeamertemplate{frametitle}[mydefault]%
+}
+
+\makeatletter
+\define@key{beamerframe}{mpidrbackground}[true]{%
+  \setbeamertemplate{frametitle}[mpidrbackground]{#1}%
+}
+\makeatother
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Titelseite
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\defbeamertemplate*{title page}{mpidr}[1][]
+{
+%%background-slide:
+\tikz[remember picture,overlay]  
+    \node[opacity=0.96,inner sep=0pt] at (current page.center){\includegraphics[page={#1},width=\paperwidth,height=\paperheight]{mpidrtheme/mpidrslides21.pdf};}; %%t
+
+%% text
+	\vspace{0cm}
+	\begin{columns}[b]{}
+	    \hspace{1.9cm}
+	    \vspace{0.2cm}
+	    
+		\begin{column}[b]{19cm}
+			\begin{flushleft}
+			    \vskip0.6cm
+				%\usebeamerfont{title}\inserttitle \vskip0.4cm
+				\definecolor{banana}{RGB}{244, 240, 240}
+				\usebeamercolor[banana]{}
+				\usebeamerfont{title} \inserttitle
+				\vskip1.4cm
+
+				\vspace{0.2cm}
+				\usebeamerfont{author}\insertauthor \vskip0.4cm
+				{
+				    \usebeamerfont{institute}
+					\insertinstitute
+				}
+			\end{flushleft}
+		\end{column}
+		\begin{column}[b]{2.1in}
+			%\flushright{\usebeamercolor{palette quaternary}\vrule width 1pt height 120pt}
+		\end{column}
+	\end{columns}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%5
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Footer
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% comment this part out to remove the footer
+\defbeamertemplate*{footline}{mpidr}%
+{
+{
+  %\leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=1.25ex,dp=1ex,left]{foot}%
+    \usebeamerfont{foot}Max Planck Institute for demographic research
+  \end{beamercolorbox}%
+  %\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+%    \usebeamerfont{title in head/foot}\insertshorttitle
+ % \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.65\paperwidth,ht=2.25ex,dp=1ex,right]{foot}%
+   
+   % \insertshortdate{}%\hspace*{2em}
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+}
+

@@ -6,4 +6,10 @@ Feel free to open issues or propose changes.
 
 ## Try it on Overleaf
 
+Viewing only:
+
 https://www.overleaf.com/read/rtnzcychznbd
+
+Editing the template:
+
+https://www.overleaf.com/2115745887cygrppdbnbzf

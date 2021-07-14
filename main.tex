@@ -4,6 +4,7 @@
 
 %%this package is only here to include latex-sourcecode in the example-presentation
 \usepackage{verbatim}
+\usepackage{booktabs}
 
 \begin{document}
 
@@ -22,8 +23,6 @@
 \begin{frame}[mpidrbackground=1]
   \titlepage
 \end{frame}
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%	section 1
@@ -76,7 +75,7 @@
     \frametitle{Style Files}
   Any style file that you need for this document can be found in the subfolder \texttt{./mpidrtheme}.\\
   
-  The style file is included by
+  The style file is included by the line
 	\begin{verbatim}
 		\usepackage[mpidr]{./mpidr/mpidr21}
 	\end{verbatim}
@@ -156,6 +155,37 @@
 \end{frame}
 
 
+\subsection{Tables}
+\begin{frame}[mpidrbackground=2]
+    \frametitle{Table}
+	
+\begin{table}
+\caption{Using booktabs}
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+\multicolumn{1}{c}{Age and sex} & \multicolumn{3}{c}{Population} & \multicolumn{3}{c}{Treated \%} \\
+\cmidrule(l{3pt}r{3pt}){1-1} \cmidrule(l{3pt}r{3pt}){2-4} \cmidrule(l{3pt}r{3pt}){5-7} 
+  & All & Female & Male & All  & Female  & Male   \\
+\midrule
+0-14 & 172 & 87 & 85 & 30 & 31 & 30 \\
+15-44 & 143 & 75 & 68 & 44 & 45 & 44 \\
+45+ & 51 & 17 & 34 & 58 & 47 & 68 \\
+Total & 366 & 179 & 187 & 38 & 37 & 39 \\
+\bottomrule
+\end{tabular}
+\end{table}	
+	
+\end{frame}
+
+\subsection{References}
+\begin{frame}[mpidrbackground=2]
+    \frametitle{Adding a reference}
+	
+Apparently, Hydras never die \cite{Schaible15701}.
+	
+\end{frame}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%	subsection 1.3
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -232,7 +262,43 @@
 
 
 
+\begin{frame}[mpidrbackground=5]
+    \frametitle{Last Slide}
+    
+    Thank you!
+    
+    \vspace{0.8cm}
+    
+    \begin{columns}
+          \column{0.35\textwidth}
+          
+            \setbeamercolor{normal text}{fg=mpidrgreen}
+            \usebeamercolor[fg]{normal text}
+            Klara Musterfrau\\ \vspace{0.3cm}
+            
+            \setbeamercolor{normal text}{fg=black}
+            \usebeamercolor[fg]{normal text}
+            Ambitious researcher\\ \vspace{0.15cm}
+            musterfrau@mpidr.de
+    
+          \column{0.35\textwidth}
+             
+            \setbeamercolor{normal text}{fg=mpidrgreen}
+            \usebeamercolor[fg]{normal text}
+            Klara Musterfrau\\ \vspace{0.3cm}
+            
+            \setbeamercolor{normal text}{fg=black}
+            \usebeamercolor[fg]{normal text}
+            Eloquent researcher\\ \vspace{0.15cm}
+            musterfrau@mpidr.de
+             
+       \end{columns}
 
+\end{frame}
 
+\begin{frame}{References}
+    \bibliographystyle{apalike}
+    \bibliography{refs}
+\end{frame}
 
 \end{document}

@@ -17,6 +17,11 @@ Editing the template:
 https://www.overleaf.com/2115745887cygrppdbnbzf
 
 # The `stork` color theme
+The stork color theme is a `beamer` color theme based on the corporate design of 
+the MPIDR (see the 2021 Powerpoint template). Using this color theme allows you
+to pick your preferred `beamer` (outer) theme (i.e. the general layout of your 
+slides) and have titles, sidebars, list items etc. use MPIDR colors.
+
 ## How to use the color theme
 Add the file `beamercolorthemestork.sty` to the directory of your `beamer` 
 presentation or to the directory where your other `beamer` themes live.
@@ -33,7 +38,7 @@ and the element in the `sty` file. Look through some of the color themes that
 come with `beamer` to get an idea of which elements can be changed. 
 
 ## How did you pick the colors?
-This color theme uses the colors suggested in `Colors.pptx`.
+This color theme uses the colors from the Powerpoint template (2021).
  
 We do not give any guarantees that all colors defined by all themes are covered
 in this themes or that they work together harmoniously. We defined the major

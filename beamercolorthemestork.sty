@@ -1,0 +1,82 @@
+% Ole Hexel, 2023-09-15
+
+% Define colors
+
+% See Colors.pptx for the "logic." The first two rows of the "Basis" colors 
+% seem intended to be paired, with the second color of each pair being
+% brighter or "flashier." The third row of the "Basis" colors are very
+% strong, very different colors. These might be intended for highlights or
+% backgrounds that catch your eye. The five columns of the "Shades" colors
+% provide each five shades of a different base color (yes, one of them is gray
+% blahblahblah). There are 37 color boxes but fewer than 37 distinct colors.
+
+% I only used a small subset of the colors defined in Colors.pptx but I defined
+% all of them in case someone wants to go nuts and write a more detailed color
+% theme.
+
+% First row of "Basis" colors in pptx
+\definecolor{mpidrdarkblue}{RGB}{   8, 68, 95}
+\definecolor{mpidrgraygreen}{RGB}{136,188,171}
+\definecolor{mpidrcyan}{RGB}{       0,177,235}
+\definecolor{mpidrdarksea}{RGB}{   10,120,120}
+% Second row of "Basis" colors in pptx
+\definecolor{mpidrgreencyan}{RGB}{  18,183,181}
+\definecolor{mpidrdarkcyan}{RGB}{   18,155,181}
+\definecolor{mpidrbrightsea}{RGB}{  34,180,105}
+\definecolor{mpidrverydarksea}{RGB}{ 0, 88,105}
+% Third row of "Basis" colors in pptx
+% first color same as mpidrdarkblue
+\definecolor{mpidrdarkred}{RGB}{142, 32, 59}
+\definecolor{mpidrorange}{RGB}{ 239,125,  0}
+\definecolor{mpidrviolet}{RGB}{  62, 44, 81}
+
+% "Shades" colors from pptx
+% All shades are named after the base color + a suffix from 1 to 5
+% (dark to light).
+% Gray
+\definecolor{mpidrgray1}{RGB}{100,100,100}
+\definecolor{mpidrgray2}{RGB}{200,200,200}
+\definecolor{mpidrgray3}{RGB}{224,224,224}
+\definecolor{mpidrgray4}{RGB}{241,241,241}
+\definecolor{mpidrgray5}{RGB}{241,241,241} % same as mpidrgray5
+% Blue
+\definecolor{mpidrblue1}{RGB}{  8, 68, 95} % same as mpidrdarkblue
+\definecolor{mpidrblue2}{RGB}{  7, 96,134}
+\definecolor{mpidrblue3}{RGB}{ 14,123,172}
+\definecolor{mpidrblue4}{RGB}{ 20,168,235}
+\definecolor{mpidrblue5}{RGB}{ 60,190,250}
+% Green (?)
+\definecolor{mpidrgreen1}{RGB}{  0, 94, 94}
+\definecolor{mpidrgreen2}{RGB}{ 10,120,120} % same as mpidrdarksea
+\definecolor{mpidrgreen3}{RGB}{  0,157,160}
+\definecolor{mpidrgreen4}{RGB}{  0,183,181}
+\definecolor{mpidrgreen5}{RGB}{ 50,220,220}
+% Red to gray
+\definecolor{mpidrgrayred1}{RGB}{142, 32, 59} % same as mpidrred and mpidrred1
+\definecolor{mpidrgrayred2}{RGB}{180, 55, 70}
+\definecolor{mpidrgrayred3}{RGB}{192,112,124}
+\definecolor{mpidrgrayred4}{RGB}{181,145,154}
+\definecolor{mpidrgrayred5}{RGB}{148,145,151}
+% Red to yellow
+\definecolor{mpidrred1}{RGB}{142, 32, 59} % same as mpidrred and mpidrgrayred
+\definecolor{mpidrred2}{RGB}{192, 39, 45}
+\definecolor{mpidrred3}{RGB}{216, 54, 26}
+\definecolor{mpidrred4}{RGB}{239,125,  0}
+\definecolor{mpidrred5}{RGB}{250,175, 59}
+
+% Set colors
+\setbeamercolor*{structure}{fg=mpidrdarksea,bg=mpidrgray4}
+
+\setbeamercolor*{palette primary}{   fg=mpidrdarksea, bg=mpidrgray4}
+\setbeamercolor*{palette secondary}{ fg=mpidrgreen2,  bg=mpidrgray3}
+\setbeamercolor*{palette tertiary}{  fg=mpidrgreen1,  bg=mpidrgray2}
+\setbeamercolor*{palette quaternary}{fg=mpidrgray2,   bg=mpidrgraygreen}
+
+\setbeamercolor*{sidebar}{fg=mpidrdarksea, bg=mpidrgray3}
+
+\setbeamercolor*{palette sidebar primary}{   fg=mpidrgray2, bg=mpidrblue2}
+\setbeamercolor*{palette sidebar secondary}{ fg=mpidrgray3, bg=mpidrblue3}
+\setbeamercolor*{palette sidebar tertiary}{  fg=mpidrgray4, bg=mpidrblue4}
+\setbeamercolor*{palette sidebar quaternary}{fg=mpidrgray5, bg=mpidrblue5}
+
+\setbeamercolor{alerted text}{fg=mpidrorange}

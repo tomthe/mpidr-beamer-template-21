@@ -1,0 +1,207 @@
+% See p. 4 of tikzposter documentation for default values (http://ctan.mirrors.hoobly.com/graphics/pgf/contrib/tikzposter/tikzposter.pdf)
+\documentclass[17pt,a1paper,landscape,margin=0mm,innermargin=10mm, blockverticalspace=10mm,colspace=10mm,subcolspace=5mm,draft]{tikzposter}
+\usetheme{Simple}
+\usetitlestyle{Filled}
+\tikzposterlatexaffectionproofoff
+
+% Define MPIDR colors
+\usepackage{xcolor}
+% Do not leave empty lines inside the second set of braces of the 
+% color palette definition. LaTeX will complain.
+\definecolorpalette{mpidrpalette}{
+    % "Basis" colors from Colors.pptx
+    % First row of "Basis" colors in Colors.pptx
+    \definecolor{mpidrdarkblue}{RGB}{8,68,95}
+    \definecolor{mpidrgraygreen}{RGB}{136,188,171}
+    \definecolor{mpidrcyan}{RGB}{0,177,235}
+    \definecolor{mpidrdarksea}{RGB}{10,120,120}
+    % Second row of "Basis" colors in Colors.pptx
+    \definecolor{mpidrgreencyan}{RGB}{18,183,181}
+    \definecolor{mpidrdarkcyan}{RGB}{18,155,181}
+    \definecolor{mpidrbrightsea}{RGB}{34,180,105}
+    %\definecolor{mpidrverydarksea}{RGB}{0,88,105}
+    % Third row of "Basis" colors in Colors.pptx
+    % first rectangle is the same as mpidrdarkblue
+    \definecolor{mpidrdarkred}{RGB}{142,32,59}
+    \definecolor{mpidrorange}{RGB}{239,125,0}
+    \definecolor{mpidrviolet}{RGB}{62,44,81}
+    % "Shades" colors from Colors.pptx
+    % All shades are named after the base color + a suffix from 1 to 5
+    % (dark to light).
+    % Gray
+    \definecolor{mpidrgray1}{RGB}{100,100,100}
+    \definecolor{mpidrgray2}{RGB}{200,200,200}
+    \definecolor{mpidrgray3}{RGB}{224,224,224}
+    \definecolor{mpidrgray4}{RGB}{241,241,241}
+    % gray shades 4 and 5 in COlors.pptx are identical
+    % Blue
+    \definecolor{mpidrblue1}{RGB}{8,68,95} % same as mpidrdarkblue
+    \definecolor{mpidrblue2}{RGB}{7,96,134}
+    \definecolor{mpidrblue3}{RGB}{14,123,172}
+    \definecolor{mpidrblue4}{RGB}{20,168,235}
+    \definecolor{mpidrblue5}{RGB}{60,190,250}
+    % Green (?)
+    \definecolor{mpidrgreen1}{RGB}{0,94,94}
+    \definecolor{mpidrgreen2}{RGB}{10,120,120} % same as mpidrdarksea
+    \definecolor{mpidrgreen3}{RGB}{0,157,160}
+    \definecolor{mpidrgreen4}{RGB}{0,183,181}
+    \definecolor{mpidrgreen5}{RGB}{50,220,220}
+    % Red, desaturated
+    \definecolor{mpidrgrayred1}{RGB}{142,32,59} % same as mpidrdarkred and mpidrred1
+    \definecolor{mpidrgrayred2}{RGB}{180,55,70}
+    \definecolor{mpidrgrayred3}{RGB}{192,112,124}
+    \definecolor{mpidrgrayred4}{RGB}{181,145,154}
+    \definecolor{mpidrgrayred5}{RGB}{148,145,151}
+    % Red to yellow
+    \definecolor{mpidrred1}{RGB}{142,32,59} % same as mpidrdarkred and mpidrgrayred1
+    \definecolor{mpidrred2}{RGB}{192,39,45}
+    \definecolor{mpidrred3}{RGB}{216,54,26}
+    \definecolor{mpidrred4}{RGB}{239,125,0}
+    }
+    
+% Any color referenced in the third set of braces of the color style
+% definition must be defined in the second set of braces.
+\definecolorstyle{mpidrcolorstyle}{
+    \definecolor{mpidrdarksea}{RGB}{10,120,120}
+    \definecolor{mpidrdarkred}{RGB}{142,32,59}
+    \definecolor{mpidrred2}{RGB}{192,39,45}
+    \definecolor{mpidrgrayred3}{RGB}{192,112,124}
+    \definecolor{mpidrblue3}{RGB}{14,123,172}
+}{
+    % Background Colors
+    \colorlet{backgroundcolor}{white}
+    \colorlet{framecolor}{white}
+    % Title Colors
+    \colorlet{titlefgcolor}{white}
+    \colorlet{titlebgcolor}{mpidrdarksea}
+    % Block Colors
+    \colorlet{blocktitlebgcolor}{white}
+    \colorlet{blocktitlefgcolor}{mpidrred2}
+    \colorlet{blockbodybgcolor}{white}
+    \colorlet{blockbodyfgcolor}{black}
+    % Innerblock Colors
+    \colorlet{innerblocktitlebgcolor}{mpidrdarkred}
+    \colorlet{innerblocktitlefgcolor}{white}
+    \colorlet{innerblockbodybgcolor}{white}
+    \colorlet{innerblockbodyfgcolor}{black}
+    % Note colors
+    \colorlet{notefgcolor}{white}
+    \colorlet{notebgcolor}{mpidrblue3}
+    \colorlet{noteframecolor}{black}
+}
+\usecolorstyle{mpidrcolorstyle}
+
+% Tikz table environment, from this post: https://tex.stackexchange.com/questions/337953/tikzposter-table-environment
+\makeatletter
+\newcounter{tablecounter}
+\newenvironment{tikztable}[1][]{
+    \def \rememberparameter{#1}
+    \vspace{10pt}
+    \refstepcounter{tablecounter}
+    \begin{center}
+    \ifx\rememberparameter\@empty
+    \else
+    {\small Tab.~\thetablecounter: \rememberparameter}
+    \fi
+    \vspace{10pt}
+    
+}{
+    \end{center}
+}
+\makeatother
+
+\usepackage{arev} % for sans serif math font; load before switching to sf for whole document
+%\usepackage{cmbright} % alternative to arev
+\usepackage[sfdefault]{roboto}
+
+% The default block style leaves too much empty space
+\defineblockstyle{dense}{
+titlewidthscale=0.9,
+bodywidthscale=1,
+titlecenter,
+titleoffsetx=0pt,
+titleoffsety=0pt,
+bodyoffsetx=0mm,
+bodyoffsety=0mm,
+bodyverticalshift=5mm,
+roundedcorners=0,
+linewidth=0pt,
+titleinnersep=0mm,
+bodyinnersep=1mm
+}{
+\draw[color=framecolor,
+fill=blockbodybgcolor,
+rounded corners=\blockroundedcorners] (blockbody.south west) rectangle (blockbody.north east);
+\ifBlockHasTitle
+\draw[color=framecolor,
+fill=blocktitlebgcolor,
+rounded corners=\blockroundedcorners] (blocktitle.south west)
+rectangle (blocktitle.north east);
+\fi
+}
+
+% Useful but not necessary
+\usepackage{booktabs}
+\usepackage[ngerman,english]{babel}
+\usepackage{hyperref}
+
+\title{MPIDR poster template}
+\author{Ole Hexel}
+\institute{Max Planck Institute for Demographic Research}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+
+\begin{columns}
+\column{0.25}
+\block{This is a title}{
+The building blocks of the poster are ``blocks'' within columns. There are also subcolumns, inner blocks, and notes. Have a look at the documentation: \url{https://www.ctan.org/pkg/tikzposter}
+
+Within blocks, you can do most of what you can do in any \LaTeX{} document. Special rules apply for figures and tables. See the examples in this document.
+
+Unfortunately, the layout options are limited to rectangles within rectangles. If you wanted a spiral or tree layout, you're out of luck. 
+
+As you might have guessed from the package name, the whole document is just a special kind of \texttt{tikz} figure. If you're familiar with \texttt{tikz}, you may have some luck manipulating the package code and creating more layout options or shapes. 
+}
+
+\useblockstyle{dense} % use custom block style
+\block{This is a ``dense'' block}{
+The block above this one uses the default block style. I thought that it wasted too much space. This block uses the custom ``dense'' block style. It reduces many of the margins and distances. You can switch between block styles at any point in the document and as often as you like.}
+
+\column{0.5}
+\block{Columns can have different widths.}{This is content.}
+\block{Figures have to be enclosed in blocks}{
+\begin{tikzfigure}[Caption goes here]
+\includegraphics{example.png}
+\label{tab:example}
+\end{tikzfigure}
+}
+
+\begin{subcolumns}
+\subcolumn{0.5}
+\block{Columns can have subcolumns.}{
+\innerblock{This is an inner block}{An inner block is a special kind of block.}
+}
+
+\subcolumn{0.5}
+\block{Tables too have to be enclosed in blocks.}{Below is table~\ref{tab:example} as an example.
+
+\begin{tikztable}[Caption goes here]
+\label{tab:example}
+\centering
+\begin{tabular}{ll}
+    EN & DE\\
+    \midrule
+    Hello &  Hallo\\
+    How are you?& Ich will nur höflich sein.
+\end{tabular}
+\end{tikztable}
+}
+
+\end{subcolumns}
+
+\column{0.25}
+\end{columns}
+\end{document}
